@@ -1,4 +1,4 @@
-module gobackend
+module gift4u/server
 
 go 1.16
 
