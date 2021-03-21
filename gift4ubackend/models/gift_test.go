@@ -1,22 +1,17 @@
 package models
 
 import (
+	"gift4u/config"
+	"gift4u/db"
 	"testing"
-
-	"github.com/go-pg/pg/v10"
 )
 
 func TestInsert(t *testing.T) {
 	// if 1 != 1 {
 	// 	t.Errorf("Abs(-1) = %d; want 1", got)
 	// }
-
-	opt, err := pg.ParseURL("")
-	if err != nil {
-		panic(err)
-	}
-
-	db := pg.Connect(opt)
+	config.Init()
+	db.Init()
 
 	var g Gift
 
@@ -26,10 +21,10 @@ func TestInsert(t *testing.T) {
 	g.Boleto = "1234.1234.1234.1234"
 	g.PixCode = "http://qrcode.com/qr123.jpg"
 	g.ProductImage = "http://playstationfera.com/play.jpg"
-	err2 := Insert(db, g)
+	err2 := g.Save()
 
 	if err2 != nil {
-		panic(err2)
+		// panic(err2)
 		t.Errorf("err")
 	}
 }

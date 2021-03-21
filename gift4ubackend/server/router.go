@@ -1,6 +1,8 @@
 package server
 
 import (
+	"gift4u/controllers"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -13,6 +15,12 @@ func NewRouter() *gin.Engine {
 			"message": "pong",
 		})
 	})
+
+	giftGroup := router.Group("gift")
+	{
+		gift := new(controllers.GiftController)
+		giftGroup.POST("/create", gift.Save)
+	}
 
 	return router
 }
