@@ -28,3 +28,18 @@ func TestInsert(t *testing.T) {
 		t.Errorf("err")
 	}
 }
+
+func TestFindGift(t *testing.T) {
+	// if 1 != 1 {
+	// 	t.Errorf("Abs(-1) = %d; want 1", got)
+	// }
+	config.Init()
+	db.Init()
+
+	_, err := SearchGiftById(1)
+
+	if err != nil {
+		// panic(err2)
+		t.Errorf("err")
+	}
+}
