@@ -19,6 +19,29 @@ definitions:
 info:
   contact: {}
 paths:
+  /gift/collection/:page:
+    get:
+      consumes:
+      - application/json
+      description: Search gifts page
+      parameters:
+      - description: Page to be retrieved
+        in: path
+        name: page
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              items:
+                $ref: '#/definitions/models.Gift'
+              type: array
+            type: array
+      summary: Search a collection of gift given a page
   /gift/create:
     post:
       consumes:
@@ -38,7 +61,7 @@ paths:
           description: ""
       summary: Save gift
   /gift/search/:id:
-    post:
+    get:
       consumes:
       - application/json
       description: Search gift identified by id

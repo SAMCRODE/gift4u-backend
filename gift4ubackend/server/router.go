@@ -21,6 +21,7 @@ func NewRouter() *gin.Engine {
 		gift := new(controllers.GiftController)
 		giftGroup.POST("/create", gift.Save)
 		giftGroup.GET("/search/:id", gift.SearchById)
+		giftGroup.GET("/collection/:page", gift.SearchGiftsByPage)
 	}
 
 	return router

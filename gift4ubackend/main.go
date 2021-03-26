@@ -19,8 +19,8 @@ func main() {
 	docs.SwaggerInfo.Title = "Swagger gift4u API"
 	docs.SwaggerInfo.Description = "Docs for giftu backend"
 	docs.SwaggerInfo.Version = "1.0"
-	docs.SwaggerInfo.Host = "api.gift4u.com"
-	docs.SwaggerInfo.BasePath = "/v2"
+	docs.SwaggerInfo.Host = "localhost:8080"
+	docs.SwaggerInfo.BasePath = "/"
 	docs.SwaggerInfo.Schemes = []string{"http", "https"}
 
 	models.CreateSchema(db.GetDB())

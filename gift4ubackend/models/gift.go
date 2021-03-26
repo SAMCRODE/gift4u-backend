@@ -27,3 +27,12 @@ func SearchGiftById(id int) (*Gift, error) {
 
 	return g, err
 }
+
+func SearchGiftsPaginated(page int) ([]Gift, error) {
+	pg := db.GetDB()
+	var gifts []Gift
+
+	err := pg.Model(&gifts).Offset(10 * (page - 1)).Limit(10).Select()
+
+	return gifts, err
+}

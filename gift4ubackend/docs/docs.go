@@ -24,6 +24,41 @@ var doc = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/gift/collection/:page": {
+            "get": {
+                "description": "Search gifts page",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Search a collection of gift given a page",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Page to be retrieved",
+                        "name": "page",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/models.Gift"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/gift/create": {
             "post": {
                 "description": "save a new gift",
@@ -53,7 +88,7 @@ var doc = `{
             }
         },
         "/gift/search/:id": {
-            "post": {
+            "get": {
                 "description": "Search gift identified by id",
                 "consumes": [
                     "application/json"

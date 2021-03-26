@@ -1,6 +1,7 @@
 package models
 
 import (
+	"fmt"
 	"gift4u/config"
 	"gift4u/db"
 	"testing"
@@ -40,6 +41,20 @@ func TestFindGift(t *testing.T) {
 
 	if err != nil {
 		// panic(err2)
+		t.Errorf("err")
+	}
+}
+
+func TestSearchPaginatedGifts(t *testing.T) {
+	config.Init()
+
+	db.Init()
+
+	gifts, err := SearchGiftsPaginated(1)
+
+	fmt.Println(gifts)
+
+	if err != nil {
 		t.Errorf("err")
 	}
 }
