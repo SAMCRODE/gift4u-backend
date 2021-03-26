@@ -1,7 +1,7 @@
 package config
 
 import (
-	"log"
+	"fmt"
 	"os"
 
 	"github.com/joho/godotenv"
@@ -17,7 +17,8 @@ func Init() {
 	err := godotenv.Load(".env")
 
 	if err != nil {
-		log.Fatalf("Error loading .env file")
+		fmt.Println("Error loading .env file")
+		// log.Fatalf("Error loading .env file")
 	}
 
 	// log.Println(os.Getenv("DATABASEURI"))

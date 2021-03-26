@@ -3,7 +3,6 @@ package main
 import (
 	"gift4u/config"
 	"gift4u/db"
-	"gift4u/models"
 	"gift4u/server"
 
 	"docs"
@@ -23,7 +22,7 @@ func main() {
 	docs.SwaggerInfo.BasePath = "/"
 	docs.SwaggerInfo.Schemes = []string{"http", "https"}
 
-	models.CreateSchema(db.GetDB())
+	// models.CreateSchema(db.GetDB())
 
 	r := server.NewRouter()
 

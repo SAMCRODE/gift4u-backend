@@ -14,11 +14,12 @@ func Init() {
 
 	opt, err := pg.ParseURL(conf.DATABASEURI)
 	if err != nil {
-		panic(err)
+		fmt.Println("Database connection error")
+		// panic(err)
+	} else {
+		db = pg.Connect(opt)
+		fmt.Println(conf.DATABASEURI)
 	}
-
-	db = pg.Connect(opt)
-	fmt.Println(conf.DATABASEURI)
 }
 
 func GetDB() *pg.DB {
