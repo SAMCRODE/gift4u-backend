@@ -5,4 +5,4 @@ build:
     - go
 
 run:
-  web: gift4ut
+  web: gift4u-backend
