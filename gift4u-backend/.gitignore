@@ -24,4 +24,4 @@ tmp.out
 
 .env
 
-bin*
+/bin*
