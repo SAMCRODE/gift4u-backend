@@ -1,11 +1,11 @@
 package main
 
 import (
-	"config"
-	"db"
-	"server"
+	"github.com/SAMCRODE/gift4u-backend/config"
+	"github.com/SAMCRODE/gift4u-backend/db"
+	"github.com/SAMCRODE/gift4u-backend/server"
 
-	"docs"
+	"github.com/SAMCRODE/gift4u-backend/docs"
 
 	swaggerFiles "github.com/swaggo/files"
 	ginSwapper "github.com/swaggo/gin-swagger"

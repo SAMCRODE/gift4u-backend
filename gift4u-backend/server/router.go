@@ -1,7 +1,7 @@
 package server
 
 import (
-	"github.com/gift4ubackend/controllers"
+	"github.com/SAMCRODE/gift4u-backend/controllers"
 
 	"github.com/gin-gonic/gin"
 )

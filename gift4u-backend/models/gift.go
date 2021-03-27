@@ -1,7 +1,7 @@
 package models
 
 import (
-	"github.com/gift4ubackend/db"
+	"github.com/SAMCRODE/gift4u-backend/db"
 )
 
 type Gift struct {

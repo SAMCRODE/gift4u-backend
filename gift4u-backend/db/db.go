@@ -3,7 +3,7 @@ package db
 import (
 	"fmt"
 
-	"github.com/gift4ubackend/config"
+	"github.com/SAMCRODE/gift4u-backend/config"
 
 	"github.com/go-pg/pg/v10"
 )

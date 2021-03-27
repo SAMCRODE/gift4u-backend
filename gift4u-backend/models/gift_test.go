@@ -5,7 +5,7 @@ import (
 	"gift4u/db"
 	"testing"
 
-	"github.com/gift4ubackend/config"
+	"github.com/SAMCRODE/gift4u-backend/config"
 )
 
 func TestInsert(t *testing.T) {

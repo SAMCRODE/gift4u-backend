@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/gift4ubackend/models"
+	"github.com/SAMCRODE/gift4u-backend/models"
 
 	"github.com/gin-gonic/gin"
 )
