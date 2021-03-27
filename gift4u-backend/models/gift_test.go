@@ -2,8 +2,9 @@ package models
 
 import (
 	"fmt"
-	"gift4u/db"
 	"testing"
+
+	"github.com/SAMCRODE/gift4u-backend/db"
 
 	"github.com/SAMCRODE/gift4u-backend/config"
 )
