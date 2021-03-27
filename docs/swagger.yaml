@@ -1,0 +1,82 @@
+definitions:
+  models.Gift:
+    properties:
+      boleto:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      pixCode:
+        type: string
+      productImage:
+        type: string
+      value:
+        type: number
+    type: object
+info:
+  contact: {}
+paths:
+  /gift/collection/:page:
+    get:
+      consumes:
+      - application/json
+      description: Search gifts page
+      parameters:
+      - description: Page to be retrieved
+        in: path
+        name: page
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              items:
+                $ref: '#/definitions/models.Gift'
+              type: array
+            type: array
+      summary: Search a collection of gift given a page
+  /gift/create:
+    post:
+      consumes:
+      - application/json
+      description: save a new gift
+      parameters:
+      - description: gift object
+        in: body
+        name: gift
+        required: true
+        schema:
+          $ref: '#/definitions/models.Gift'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      summary: Save gift
+  /gift/search/:id:
+    get:
+      consumes:
+      - application/json
+      description: Search gift identified by id
+      parameters:
+      - description: Gift id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Gift'
+      summary: Search gift
+swagger: "2.0"

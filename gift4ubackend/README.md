@@ -1,1 +1,0 @@
-sudo docker run -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_DB=gift4u -p 5432:5432 postgres
