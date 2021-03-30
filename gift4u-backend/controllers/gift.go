@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"net/http"
 	"strconv"
 
@@ -82,6 +83,7 @@ func (g GiftController) SearchGiftsByPage(c *gin.Context) {
 	gifts, err := models.SearchGiftsPaginated(page)
 
 	if err != nil {
+		fmt.Println(err)
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Please try again later2"})
 		return
 	}
