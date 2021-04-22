@@ -60,3 +60,12 @@ func TestSearchPaginatedGifts(t *testing.T) {
 		t.Errorf("err")
 	}
 }
+
+func TestGetTotal(t *testing.T) {
+	_, err := GetTotalGift()
+
+	if err != nil {
+		t.Errorf("err")
+	}
+
+}

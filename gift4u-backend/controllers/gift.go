@@ -12,6 +12,11 @@ import (
 
 type GiftController struct{}
 
+type ResponseGiftPage struct {
+	Gifts []models.Gift
+	Total int
+}
+
 var giftModel = new(models.Gift)
 
 // Gift godoc
@@ -70,7 +75,7 @@ func (g GiftController) SearchById(c *gin.Context) {
 // @Param   page path int true "Page to be retrieved"
 // @Accept  json
 // @Produce  json
-// @Success 200 {array} []models.Gift
+// @Success 200 {object} controllers.ResponseGiftPage
 // @Router /gift/collection/:page [get]
 func (g GiftController) SearchGiftsByPage(c *gin.Context) {
 	page, err := strconv.Atoi(c.Param("page"))
@@ -87,5 +92,14 @@ func (g GiftController) SearchGiftsByPage(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Please try again later2"})
 		return
 	}
-	c.JSON(http.StatusOK, gin.H{"gifts": gifts})
+
+	total, err1 := models.GetTotalGift()
+
+	if err1 != nil {
+		fmt.Println(err)
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Please try again later3"})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"gifts": gifts, "total": total})
 }

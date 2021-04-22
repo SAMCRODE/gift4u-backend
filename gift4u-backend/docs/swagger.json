@@ -27,13 +27,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "array",
-                                "items": {
-                                    "$ref": "#/definitions/models.Gift"
-                                }
-                            }
+                            "$ref": "#/definitions/controllers.ResponseGiftPage"
                         }
                     }
                 }
@@ -98,6 +92,20 @@
         }
     },
     "definitions": {
+        "controllers.ResponseGiftPage": {
+            "type": "object",
+            "properties": {
+                "gifts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.Gift"
+                    }
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
         "models.Gift": {
             "type": "object",
             "properties": {

@@ -47,13 +47,7 @@ var doc = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "array",
-                                "items": {
-                                    "$ref": "#/definitions/models.Gift"
-                                }
-                            }
+                            "$ref": "#/definitions/controllers.ResponseGiftPage"
                         }
                     }
                 }
@@ -118,6 +112,20 @@ var doc = `{
         }
     },
     "definitions": {
+        "controllers.ResponseGiftPage": {
+            "type": "object",
+            "properties": {
+                "gifts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.Gift"
+                    }
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
         "models.Gift": {
             "type": "object",
             "properties": {

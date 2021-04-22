@@ -36,3 +36,11 @@ func SearchGiftsPaginated(page int) ([]Gift, error) {
 
 	return gifts, err
 }
+
+func GetTotalGift() (int, error) {
+	pg := db.GetDB()
+	var gifts []Gift
+	total, err := pg.Model(&gifts).Count()
+
+	return total, err
+}

@@ -1,4 +1,13 @@
 definitions:
+  controllers.ResponseGiftPage:
+    properties:
+      gifts:
+        items:
+          $ref: '#/definitions/models.Gift'
+        type: array
+      total:
+        type: integer
+    type: object
   models.Gift:
     properties:
       boleto:
@@ -36,11 +45,7 @@ paths:
         "200":
           description: OK
           schema:
-            items:
-              items:
-                $ref: '#/definitions/models.Gift'
-              type: array
-            type: array
+            $ref: '#/definitions/controllers.ResponseGiftPage'
       summary: Search a collection of gift given a page
   /gift/create:
     post:
